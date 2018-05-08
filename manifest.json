@@ -8,6 +8,14 @@
     "default_popup": "popup.html",
     "default_title": "插件哦"
   },
+  "icons": {
+    "16": "img/logo.png",
+    "48": "img/logo48.png",
+    "128": "img/logo128.png"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
   "permissions": [
     "notifications"
   ],
