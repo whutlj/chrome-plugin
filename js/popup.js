@@ -1,11 +1,11 @@
-$(function () {
-  var grobalObj = {
-    page: '123'
-  }
-
-  $('.container').append("<div>这是添加的内容</div>").show();
-   console.log('1111')
-   setTimeout(function() {
-    console.log('111')
-   },5000)
+var background = chrome.extension.getBackgroundPage()
+var grobalObj = {
+  page: '123'
+}
+console.log(background.pageObj)
+$('.container').append('<div>'+background.pageObj.admain+'</div>').show();
+chrome.cookies.set({
+  url: 'https://www.baidu.com',
+  name: 'token',
+  value: '123456'
 })
