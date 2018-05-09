@@ -19,7 +19,9 @@
   "permissions": [
     "notifications",
     "cookies",
-    "https://www.baidu.com"
+    "tabs",
+    "history",
+    "<all_urls>"
   ],
   "homepage_url": "https://newrank.cn"
 }
