@@ -23,5 +23,10 @@
     "history",
     "<all_urls>"
   ],
+  "content_scripts":[{
+    "matches":["https://www.baidu.com"],
+    "css": ["css/content.css"],
+    "js": ["content.js"]
+  }],
   "homepage_url": "https://newrank.cn"
 }

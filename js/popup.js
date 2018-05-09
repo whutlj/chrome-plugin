@@ -22,3 +22,12 @@ $('.tabGet').on('click', function () {
   })
 })
 
+  chrome.history.addUrl( {url:'https://www.baidu.com'})
+  chrome.history.addUrl( {url:'https://www.baidu.com'})
+$('.showHistory').on('click', function () {
+  console.log('天假')
+  chrome.history.search({text: ''},function (arr) {
+    console.log(arr)
+  })
+})
+
