@@ -81,7 +81,11 @@ chrome.extension.onRequest.addListener(function (sendRequest, sender, senderResp
     getCookie: true
   });
 });
-
+  // var notifications = webkitNotifications.createNotification(
+  //         'img/ad.png',
+  //         '标题',
+  //         '内容'
+  //       );
 chrome.extension.onConnect.addListener(function (port) {
   console.log(port)
   var url =  chrome.extension.getURL('img/ad.png');
@@ -94,7 +98,9 @@ chrome.extension.onConnect.addListener(function (port) {
           msg: 'hello too'
         })
       } else {
-        console.log(res.data)
+        console.log('哈哈哈')
+      
+        // notifications.show();
       }
     })
   }

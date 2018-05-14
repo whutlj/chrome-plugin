@@ -4,6 +4,7 @@ var grobalObj = {
   page: '123'
 }
 console.log(background.pageObj)
+console.log(background.globalObj)
 $('.container').append('<div>'+background.pageObj.admain+'</div>').show();
 
 

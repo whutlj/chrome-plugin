@@ -1,3 +1,4 @@
+var background = chrome.extension.getBackgroundPage()
 console.log('扩展2')
 
 chrome.extension.onConnect.addListener(function (port) {
@@ -15,3 +16,6 @@ chrome.extension.onConnect.addListener(function (port) {
     })
   }
 })
+
+console.log(background.globalObj)
+console.log(background.pageObj)

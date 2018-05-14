@@ -14,7 +14,7 @@
     "128": "img/logo128.png"
   },
   "background": {
-    "scripts": ["js/common/jquery.js", "js/background.js"]
+    "scripts": ["js/common/jquery.js", "js/background2.js","js/background.js"]
   },
   "permissions": [
     "notifications",
