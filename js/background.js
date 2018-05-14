@@ -42,3 +42,19 @@ function getAllCookie(fn){
     fn(cookies)
   })
 }
+function randomColor(params) {
+  var color = '';
+  for (var index = 0; index < 3; index++) {
+    var a =  Math.floor(Math.random() * 256).toString(16)
+    a = a.length === 1 ? '0' + a : a;
+    color += a;
+  }
+  return "#" + color;
+}
+
+chrome.browserAction.onClicked.addListener(function (tab) {
+
+  chrome.tabs.executeScript(null, {
+    code: 'document.body.bgColor = "#ff6200";var ele = document.querySelector(".notice-wrapper .notice-p"); ele.style.fontSize="20px";ele.style.color="'+ randomColor() +'"'
+  })
+})
