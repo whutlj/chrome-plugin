@@ -53,8 +53,63 @@ function randomColor(params) {
 }
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-
   chrome.tabs.executeScript(null, {
     code: 'document.body.bgColor = "#ff6200";var ele = document.querySelector(".notice-wrapper .notice-p"); ele.style.fontSize="20px";ele.style.color="'+ randomColor() +'"'
   })
 })
+
+function sendRequest2Tab(params) {
+  // 第一个参数为窗口的id，默认为当前窗口
+  chrome.tabs.getSelected(null, function (tab) {
+    params.tab = tab
+    chrome.tabs.sendRequest(tab.id, params, function  (res) {
+      console.log('发送消息给contentjs成功')
+    })
+  })
+}
+
+
+chrome.extension.onRequest.addListener(function (sendRequest, sender, senderResponse) {
+  console.log(sendRequest)
+  sendRequest2Tab({
+    tab: '',
+    data: 'bc-data'
+  });
+  senderResponse({
+    name: 'background',
+    age: 10,
+    getCookie: true
+  });
+});
+
+chrome.extension.onConnect.addListener(function (port) {
+  console.log(port)
+  var url =  chrome.extension.getURL('img/ad.png');
+  console.log('图片地址' + url);
+  if (port.name === 'extensionOne') {
+    port.onMessage.addListener(function (res) {
+      if (res.data === 'hello') {
+        console.log(res.data)
+        port.postMessage({
+          msg: 'hello too'
+        })
+      } else {
+        console.log(res.data)
+      }
+    })
+  }
+  port.onDisconnect.addListener(function (params) {
+    console.log('断开连接')
+  })
+})
+
+chrome.tabs.onCreated.addListener(function (tab) {
+  console.log('创建了标签')
+})
+chrome.tabs.onUpdated.addListener(function (id, object) {
+  console.log('标签更新完毕')
+  if (object.status === 'loading') {
+    console.log(object.url)
+  }
+})
+$('body').append('<div>背景页</div>')
