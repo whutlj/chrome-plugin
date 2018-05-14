@@ -22,6 +22,7 @@
     "history",
     "<all_urls>"
   ],
+<<<<<<< HEAD
   "content_scripts": [
     {
       "matches": ["http://dev.a.newrank.cn/*"],
@@ -32,5 +33,12 @@
       ]
     }
   ],
+=======
+  "content_scripts":[{
+    "matches":["https://www.baidu.com"],
+    "css": ["css/content.css"],
+    "js": ["content.js"]
+  }],
+>>>>>>> 1fc993d87fda00e53f8510cbb0d28b1d752bf459
   "homepage_url": "https://newrank.cn"
 }
